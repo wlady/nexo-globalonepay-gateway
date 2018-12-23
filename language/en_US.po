@@ -1,0 +1,168 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nexo GlobalOnePay Gateway\n"
+"POT-Creation-Date: 2018-08-08 23:59+0100\n"
+"PO-Revision-Date: 2018-08-08 23:59+0100\n"
+"Last-Translator: \n"
+"Language-Team: Vladimir Zabara\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _s;__;_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/angular/register/directives/globalonepay-payment.php:9
+msgid "GlobalOne Payment"
+msgstr "GlobalOne Payment"
+
+#: inc/angular/register/directives/globalonepay-payment.php:17
+msgid "Montant du paiement"
+msgstr "Payment Amount"
+
+#: inc/angular/register/directives/globalonepay-payment.php:23
+#, fuzzy
+msgid "Définir un montant"
+msgstr "Set an amount"
+
+#: inc/angular/register/directives/globalonepay-payment.php:43
+#, fuzzy
+msgid ""
+"Vous devez facturer une carte avec GlobalOne, avant de l'ajouter comme paiement"
+msgstr "You have to charge a card with GlobalOne, before adding as payment"
+
+#: inc/filters.php:8 nexo-globalonepay-gateway.php:25 nexo-globalonepay-gateway.php:29
+#: views/dashboard-footer.php:13
+#, fuzzy
+msgid "GlobalOne"
+msgstr "GlobalOne"
+
+#: inc/filters.php:21
+#, fuzzy
+msgid "Payment Gateway"
+msgstr "Payment Gateway"
+
+#: views/angular-paybox-controller.php:13 views/dashboard-footer.php:46
+#, fuzzy
+msgid "Attention"
+msgstr "Warning"
+
+#: views/angular-paybox-controller.php:13
+#, fuzzy
+msgid "Le montant spécifié est incorrecte."
+msgstr "The specified amount is incorrect"
+
+#: views/angular-paybox-controller.php:28
+#, fuzzy
+msgid "Paiement d'une commande"
+msgstr "Payment of an order"
+
+#: views/angular-paybox-controller.php:29
+#, fuzzy, php-format
+msgid "Vous venez d'effectuer un paiement dans la boutique %s. Merci"
+msgstr "You have just made a payment in the shop %s. Thank you"
+
+#: views/angular-paybox-controller.php:54
+#, fuzzy
+msgid "Veuillez patienter"
+msgstr "Please wait"
+
+#: views/angular-paybox-controller.php:54
+#, fuzzy
+msgid "Paiement en cours..."
+msgstr "Payment in process..."
+
+#: views/angular-paybox-controller.php:66
+#, fuzzy
+msgid "Paiement effectué"
+msgstr "Payment done"
+
+#: views/angular-paybox-controller.php:66
+#, fuzzy
+msgid "Le paiement a été effectué."
+msgstr "The payment has been done successfully"
+
+#: views/angular-paybox-controller.php:82
+#, fuzzy
+msgid "Une erreur s'est produite"
+msgstr "An error has occurred."
+
+#: views/angular-paybox-controller.php:82
+#, fuzzy
+msgid ""
+"Le paiement n'a pu être effectuée. Une erreur s'est produite durant la "
+"facturation de la carte de crédit.<br>Le serveur à retourner cette erreur : "
+msgstr ""
+"The payment could be made. An error occurred during the credit card billing."
+"<br>The server to return this error:"
+
+#: views/dashboard-footer.php:36
+#, fuzzy
+msgid "Facturer une carte"
+msgstr "Charge a card"
+
+#: views/dashboard-footer.php:46
+#, fuzzy
+msgid ""
+"Vous ne pouvez pas modifier un paiement déjà effectué, car une carte a déjà "
+"été débitée."
+msgstr ""
+"You can not change a payment already made, because a card has already been "
+"charged."
+
+#: views/globalonepay-settings.php:19
+#, fuzzy
+msgid "Réglages GlobalOne"
+msgstr "GlobalOne Settings "
+
+#: views/globalonepay-settings.php:26
+#, fuzzy
+msgid "Sauvegarder les réglages"
+msgstr "Save Settings"
+
+#: views/globalonepay-settings.php:34
+#, fuzzy
+msgid "Activer GlobalOne"
+msgstr "Enable GlobalOne"
+
+#: views/globalonepay-settings.php:36
+#, fuzzy
+msgid "Non"
+msgstr "No"
+
+#: views/globalonepay-settings.php:37
+#, fuzzy
+msgid "Oui"
+msgstr "Yes"
+
+#: views/globalonepay-settings.php:39
+#, fuzzy
+msgid ""
+"Désactiver GlobalOne empêchera au ressource de ce dernier de se charger dans "
+"l'interface de la caisse."
+msgstr ""
+"Disable GlobalOne will prevent this latter's resources to be loaded in the "
+"checkout screen."
+
+#: views/globalonepay-settings.php:46
+#, fuzzy
+msgid "Terminal ID"
+msgstr "Terminal ID"
+
+#: views/globalonepay-settings.php:47
+#, fuzzy, php-format
+msgid ""
+"Obtenir des informations \"terminal id\" à partir de votre compte."
+msgstr ""
+"Retrieve the \"Terminal ID\" from your GlobalOne account."
+
+#: views/globalonepay-settings.php:47
+#, fuzzy, php-format
+msgid ""
+"Obtenir des informations \"shared secret\" à partir de votre compte."
+msgstr ""
+"Retrieve the \"Shared Secret\" from your GlobalOne account."
