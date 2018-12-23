@@ -6,10 +6,6 @@ if (@$Options[ store_prefix() . 'nexo_enable_globalonepay' ] != 'no'):
 /**
  * Load GlobalOnePay Payment
 **/
-
-    var validNumber = cardValidator.number('4111');
-    console.log([validNumber.isValid, validNumber.card.type]);
-
 $scope.openGlobalOnePayPayment	=	function(){
 
 	if( parseFloat( $scope.paidAmount ) == isNaN() || parseFloat( $scope.paidAmount ) <= 0 || typeof $scope.paidAmount == 'undefined' ) {
@@ -19,20 +15,6 @@ $scope.openGlobalOnePayPayment	=	function(){
 
     // NB: JPY should be integer! See http://globalonepay.info/documents/GlobalOnePay_XML_API_Guide.pdf
 	var	CartToPayLong		=	NexoAPI.Format( $scope.paidAmount, '0.00' );
-
-<!--    $scope.globalOnePayDetails	=	{-->
-<!--    	name				:	'--><?php //echo _s( 'Paiement d\'une commande', 'nexo-globalonepay-gateway' );?><!--',-->
-<!--        description			:	'--><?php //echo sprintf( _s( 'Vous venez d\'effectuer un paiement dans la boutique %s. Merci', 'nexo-globalonepay-gateway' ), $Options[ store_prefix() . 'site_name' ] );?><!--',-->
-<!--        amount				:	CartToPayLong,-->
-<!--        currency			:	'--><?php //echo @$Options[ store_prefix() . 'nexo_currency_iso' ];?><!--'-->
-<!--    };-->
-<!---->
-<!--    __globalOnePayCheckout.open(-->
-<!--    	$scope.globalOnePayDetails.name,-->
-<!--        $scope.globalOnePayDetails.description,-->
-<!--        $scope.globalOnePayDetails.amount,-->
-<!--        $scope.globalOnePayDetails.currency-->
-<!--	);-->
 
     $scope.card = new Object;
     $scope.card.number = '';
@@ -76,9 +58,6 @@ $scope.openGlobalOnePayPayment	=	function(){
 
     $('.globalonepaywrapper').html($compile($('.globalonepaywrapper').html())($scope));
 
-    //angular.element('.modal-dialog').css('width', '50%');
-    //angular.element('.modal-body').css('height', $scope.wrapperHeight);
-    //angular.element('.modal-body').css('overflow-x', 'hidden');
 };
 
 // Register events when payment is proceeded
