@@ -27,11 +27,11 @@ class Nexo_GlobalOnePayGateway_Filters
 
 	/**
 	 * PayBox dependency
-	 * register Stripe Checkout and Windows_Splash
+	 * register Windows_Splash
 	**/
 
 	public static function paybox_dependencies( $dependencies )
 	{
-		return array_merge( $dependencies, array( '__windowSplash', '__globalOnePayCheckout' ) );
+		return array_merge( $dependencies, array( '__windowSplash' ) );
 	}
 }

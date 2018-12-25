@@ -103,13 +103,9 @@ global $Options, $store_id, $register_id;
                 v2Checkout.paymentWindow.showSplash();
             },
             success			:	function( returned ) {
-
                 if( _.isObject( returned ) ) {
-
                     order_details		=	NexoAPI.events.applyFilters( 'after_order_save', [ returned, payment_means ] )[0];
-
                     console.log(['v2Checkout.saveOrder', order_details]);
-
                 }
                 v2Checkout.paymentWindow.hideSplash();
 

@@ -1,5 +1,5 @@
 <?php
-// include_once( dirname( __FILE__ ) . '/inc/controllers/gateway.php' );
+
 include_once( dirname( __FILE__ ) . '/inc/filters.php' );
 include_once( dirname( __FILE__ ) . '/inc/actions.php' );
 
@@ -80,7 +80,6 @@ class Nexo_GlobalOnePay_Gateway extends CI_Model
 	public function register_content()
 	{
 		include_once( MODULESPATH . '/nexo/inc/angular/order-list/services/window-splash.php' );
-		include_once( MODULESPATH . '/nexo-globalonepay-gateway/inc/angular/services/checkout.php' );
 		include_once( MODULESPATH . '/nexo-globalonepay-gateway/inc/angular/directives/payment.php' );
 		include_once( MODULESPATH . '/nexo-globalonepay-gateway/inc/angular/directives/payment-form.php' );
 		include_once( MODULESPATH . '/nexo-globalonepay-gateway/inc/angular/controllers/payment-form.php' );

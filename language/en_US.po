@@ -31,8 +31,7 @@ msgstr "Set an amount"
 
 #: inc/angular/register/directives/globalonepay-payment.php:43
 #, fuzzy
-msgid ""
-"Vous devez facturer une carte avec GlobalOne, avant de l'ajouter comme paiement"
+msgid "Vous devez facturer une carte avec GlobalOnePay, avant de l'ajouter comme paiement"
 msgstr "You have to charge a card with GlobalOne, before adding as payment"
 
 #: inc/filters.php:8 nexo-globalonepay-gateway.php:25 nexo-globalonepay-gateway.php:29
