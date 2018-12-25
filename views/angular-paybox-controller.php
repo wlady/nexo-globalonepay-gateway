@@ -17,12 +17,14 @@ $scope.openGlobalOnePayPayment	=	function(){
 	var	CartToPayLong		=	NexoAPI.Format( $scope.paidAmount, '0.00' );
 
     $scope.card = new Object;
+    $scope.card.type = '';
     $scope.card.number = '';
     $scope.card.expire = '';
     $scope.card.cvv = '';
     $scope.card.holder = '';
     $scope.card.amount = CartToPayLong;
     $scope.card.currency = '<?php echo @$Options[ store_prefix() . 'nexo_currency_iso' ];?>';
+    $scope.card.order = '';
 
     // If order has at least one item
     NexoAPI.Bootbox().confirm({
@@ -40,29 +42,83 @@ $scope.openGlobalOnePayPayment	=	function(){
         },
         callback: function (action) {
             if (action) {
+                $scope.card.number = $scope.card.number.replace(/[^0-9]/g, "");
                 var validNumber = cardValidator.number($scope.card.number);
-                $scope.card.type = cardValidator.supportedBrand(validNumber.card.type);
-                if (!validNumber.isValid) {
+                //if (!validNumber.isValid) {
+                if (validNumber.card == null) {
                     NexoAPI.Notify().error( '<?php echo _s('Verification Error', 'nexo-globalonepay-gateway');?>', '<?php echo _s('Check Card Number', 'nexo-globalonepay-gateway');?>');
                     return false;
                 }
+                $scope.card.type = cardValidator.supportedBrand(validNumber.card.type);
                 if ($scope.card.type == "") {
                     NexoAPI.Notify().error( '<?php echo _s('Verification Error', 'nexo-globalonepay-gateway');?>', '<?php echo _s('Unsupported Card Brand', 'nexo-globalonepay-gateway');?>');
                     return false;
                 }
-                console.log($scope.card);
-                //return v2Checkout.createGlobalOnePayment($scope.card);
+                var expDate = cardValidator.expirationDate($scope.card.expire);
+                if ($scope.card.expire == "" || !expDate.isValid) {
+                    NexoAPI.Notify().error( '<?php echo _s('Verification Error', 'nexo-globalonepay-gateway');?>', '<?php echo _s('Check Expire Date', 'nexo-globalonepay-gateway');?>');
+                    return false;
+                }
+                $scope.card.cvv = $scope.card.cvv.replace(/[^0-9]/g, "")
+                if ($scope.card.cvv == "") {
+                    NexoAPI.Notify().error( '<?php echo _s('Verification Error', 'nexo-globalonepay-gateway');?>', '<?php echo _s('Check CVV', 'nexo-globalonepay-gateway');?>');
+                    return false;
+                }
+                if ($scope.card.holder == "") {
+                    NexoAPI.Notify().error( '<?php echo _s('Verification Error', 'nexo-globalonepay-gateway');?>', '<?php echo _s('Check Holder Name', 'nexo-globalonepay-gateway');?>');
+                    return false;
+                }
+                v2Checkout.saveOrder();
             }
         }
     });
 
     $('.globalonepaywrapper').html($compile($('.globalonepaywrapper').html())($scope));
+    $('.card-number').inputmask('999999999999999[9999]');
+    $('.card-expire').inputmask({alias: 'mm/yyyy', inputFormat: 'mm/yy'});
+    $('.card-cvv').inputmask('999[9]');
 
 };
 
-// Register events when payment is proceeded
+// Register events
+NexoAPI.events.addFilter( 'check_payment_mean', function( object ) {
+    object[0] = object[1] == "globalonepay";
 
-NexoAPI.events.addAction( 'globalonepay_charged', function( token ) {
+    return object;
+});
+
+NexoAPI.events.addFilter( 'payment_mean_checked', function( object ) {
+    if (object[1] == 'globalonepay') {
+        object[0].PAYMENT_TYPE = object[1];
+        object[0].SOMME_PERCU = NexoAPI.ParseFloat( v2Checkout.CartToPay );
+    }
+
+    return object;
+});
+
+NexoAPI.events.addFilter( 'after_order_save', function( object ) {
+    if (object[1] == 'globalonepay') {
+        $scope.card.order = object[0].order_code;
+        NexoAPI.events.doAction( 'globalonepay_charged', $scope.card );
+    }
+    return object;
+});
+
+NexoAPI.events.addFilter( 'nexo_payments_types_object', function( object ) {
+
+    object          =       _.extend( object, _.object( [ 'globalonepay' ], [{
+        text            :       '<?php echo _s( 'GLobalOnePay', 'nexo-payments-gateway' );?>',
+        active          :       false,
+        isCustom        :       true
+    }] ) );
+
+    return object;
+
+});
+
+NexoAPI.events.addAction( 'globalonepay_charged', function( data ) {
+
+    data.<?php echo $this->security->get_csrf_token_name(); ?> = "<?php echo $this->security->get_csrf_hash(); ?>";
 
 	$.ajax( '<?php echo site_url(array( 'rest', 'nexo', 'globalonepay', store_get_param( '?' ) ) );?>', {
         beforeSend : 	function(){
@@ -73,7 +129,7 @@ NexoAPI.events.addAction( 'globalonepay_charged', function( token ) {
         },
         type		:	'POST',
         dataType	:	"json",
-        data		:	$scope.globalOnePayDetails,
+        data		:	data,
         success		: 	function( data ) {
             if( data.status == 'payment_success' ) {
 

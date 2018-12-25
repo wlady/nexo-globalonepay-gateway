@@ -5,9 +5,9 @@ include_once( dirname( __FILE__ ) . '/inc/actions.php' );
 
 class Nexo_GlobalOnePay_Gateway extends CI_Model
 {
-    const TEST_MODE_SALE_URL = 'https://testpayments.globalone.me/merchant/paymentpage';
+    const TEST_MODE_SALE_URL = 'https://testpayments.globalone.me/merchant/xmlpayment';
     // will be available after code review
-    const PROD_MODE_SALE_URL = 'https://testpayments.globalone.me/merchant/paymentpage';
+    const PROD_MODE_SALE_URL = 'https://testpayments.globalone.me/merchant/xmlpayment';
 
 	public function __construct()
 	{
@@ -43,6 +43,8 @@ class Nexo_GlobalOnePay_Gateway extends CI_Model
 		$this->events->add_filter( 'paybox_dependencies', array( 'Nexo_GlobalOnePayGateway_Filters', 'paybox_dependencies' ) );
         $this->enqueue->css( '../modules/nexo-globalonepay-gateway/css/styles' );
         $this->enqueue->js( '../modules/nexo-globalonepay-gateway/js/bundle.min' );
+        $this->enqueue->js( '../plugins/input-mask/jquery.inputmask' );
+        $this->enqueue->js( '../plugins/input-mask/jquery.inputmask.date.extensions' );
 	}
 
 	/**

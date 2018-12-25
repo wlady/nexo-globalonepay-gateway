@@ -21,7 +21,7 @@ tendooApp.directive( 'globalonepayFormContent', function(){
 	    .add( 'span.input-group-addon' )
         .textContent	=	'<?php echo _s( 'Card Number', 'nexo' );?>';
     HTML.query( '.group-content.row1' )
-        .add( 'input.form-control' )
+        .add( 'input.form-control.card-number' )
         .each( 'ng-model', 'card.number' )
         .each( 'placeholder', '<?php echo _s( 'Card Number', 'nexo' );?>' );
 
@@ -33,7 +33,7 @@ tendooApp.directive( 'globalonepayFormContent', function(){
         .textContent	=	'<?php echo _s( 'Card Expire', 'nexo' );?>';
 
     HTML.query( '.group-content.row2')
-        .add( 'input.form-control' )
+        .add( 'input.form-control.card-expire' )
         .each( 'ng-model', 'card.expire' )
         .each( 'placeholder', '<?php echo _s( 'MM/YY', 'nexo' );?>' );
 
@@ -45,7 +45,7 @@ tendooApp.directive( 'globalonepayFormContent', function(){
         .textContent	=	'<?php echo _s( 'CVV', 'nexo' );?>';
 
     HTML.query( '.group-content.row3')
-        .add( 'input.form-control' )
+        .add( 'input.form-control.card-cvv' )
         .each( 'ng-model', 'card.cvv' )
         .each( 'placeholder', '<?php echo _s( 'CVV', 'nexo' );?>' );
 

@@ -1,15 +1,10 @@
 <?php
 $this->load->module_config('nexo', 'nexo');
 global $Options, $store_id, $register_id;
-
-$url = @$Options['nexo_globalonepay_test_mode'] != 'no' ? Nexo_GlobalOnePay_Gateway::PROD_MODE_SALE_URL : Nexo_GlobalOnePay_Gateway::TEST_MODE_SALE_URL;
-$terminalId = $Options['nexo_globalonepay_terminal_id'];
-$secret = $Options['nexo_globalonepay_shared_secret'];
-$date = date('j-n-Y:H:m:i:v', time());
 ?>
 <script type="text/javascript">
 
-    v2Checkout.createGlobalOnePayment = function(card) {
+    v2Checkout.saveOrder = function() {
         var payment_means = 'globalonepay';
         var order_items				=	new Array;
 
@@ -110,9 +105,13 @@ $date = date('j-n-Y:H:m:i:v', time());
             success			:	function( returned ) {
 
                 if( _.isObject( returned ) ) {
-                    console.log([card, order_details]);
+
+                    order_details		=	NexoAPI.events.applyFilters( 'after_order_save', [ returned, payment_means ] )[0];
+
+                    console.log(['v2Checkout.saveOrder', order_details]);
 
                 }
+                v2Checkout.paymentWindow.hideSplash();
 
             },
             error			:	function(){

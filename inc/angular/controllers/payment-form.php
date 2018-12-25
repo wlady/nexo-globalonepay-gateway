@@ -5,10 +5,6 @@
 
     tendooApp.controller('globalonePaymentForm', ['$compile', '$http', '$scope', function ($compile, $http, $scope) {
 
-        $scope.$on('globalOnePayFired', function (event, data) {
-            console.log(data);
-        });
-
         /**
          * confirmPayOrder
          **/

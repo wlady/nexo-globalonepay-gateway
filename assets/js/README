@@ -1,0 +1,7 @@
+To build bundle just install:
+
+npm i browserify minifify card-validator
+
+and compile the bundle with:
+
+./node_modules/.bin/browserify bundle.src.js -d -t -p [minifyify --map bundle.js.map --output bundle.js.map] -o bundle.min.js
