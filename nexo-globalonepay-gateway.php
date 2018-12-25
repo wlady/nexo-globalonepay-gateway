@@ -82,7 +82,6 @@ class Nexo_GlobalOnePay_Gateway extends CI_Model
 		include_once( MODULESPATH . '/nexo/inc/angular/order-list/services/window-splash.php' );
 		include_once( MODULESPATH . '/nexo-globalonepay-gateway/inc/angular/directives/payment.php' );
 		include_once( MODULESPATH . '/nexo-globalonepay-gateway/inc/angular/directives/payment-form.php' );
-		include_once( MODULESPATH . '/nexo-globalonepay-gateway/inc/angular/controllers/payment-form.php' );
 		include_once( MODULESPATH . '/nexo-globalonepay-gateway/inc/angular/checkout-extended.php' );
 	}
 
