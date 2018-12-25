@@ -6,7 +6,6 @@ if (@$Options[ store_prefix() . 'nexo_enable_globalonepay' ] != 'no'):
 /**
  * Load GlobalOnePay Payment
 **/
-// if not empty then current order is already created
 $scope.openGlobalOnePayPayment	=	function(){
 
     $scope.orderId = 0;
@@ -140,14 +139,9 @@ NexoAPI.events.addFilter( 'nexo_payments_types_object', function( object ) {
 
 });
 
-NexoAPI.events.addAction( 'close_paybox', function( ) {
-    // reset current order ID
-    $scope.orderId = 0;
-});
-
 NexoAPI.events.addAction( 'globalonepay_charged', function( data ) {
 
-	$.ajax( '<?php echo site_url(array( 'rest', 'nexo', 'globalonepay', store_get_param( '?' ) ) );?>', {
+	$.ajax( '<?php echo site_url(array( 'api', 'nexopos', 'globalonepay', store_get_param( '?' ) ) );?>', {
         beforeSend : 	function(){
 
             v2Checkout.paymentWindow.showSplash();

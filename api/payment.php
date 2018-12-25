@@ -1,10 +1,9 @@
 <?php
 
-include_once(APPPATH . '/modules/nexo/vendor/autoload.php');
-
-trait Nexo_globalonepay
+class GlobalOnePayment extends Tendoo_Api
 {
-    public function globalonepay_post()
+
+    public function pay()
     {
         global $Options;
 
@@ -80,7 +79,7 @@ trait Nexo_globalonepay
                 $this->response($array_data['ERRORSTRING'], 500);
             } else if (isset($array_data['RESPONSECODE']) && $array_data['RESPONSECODE'] == 'A') {
                 $this->response(array(
-                    'status'    =>    'payment_success'
+                    'status' => 'payment_success'
                 ), 200);
             } else if (isset($array_data['RESPONSETEXT'])) {
                 $this->response($array_data['RESPONSETEXT'], 500);
