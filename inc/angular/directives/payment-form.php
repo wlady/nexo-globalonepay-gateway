@@ -1,8 +1,3 @@
-<!--style>
-    .form .input-group .input-group-addon {
-        width: 25% !important;
-    }
-</style-->
 <script>
 /**
  * GlobalOnePay Form Content

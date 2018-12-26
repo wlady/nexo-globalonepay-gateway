@@ -1,1 +1,2 @@
-globalonepay_charged   : action, when initial charge has been proceeded.
+globalonepay_charged    : action, when initial charge has been proceeded.
+after_order_save        : filter, after new order have been saved.

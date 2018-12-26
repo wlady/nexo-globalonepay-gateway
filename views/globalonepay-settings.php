@@ -39,7 +39,7 @@ $this->Gui->add_item(array(
 	'description'    =>    __('Désactiver GlobalOne empêchera au ressource de ce dernier de se charger dans l\'interface de la caisse.', 'nexo-globalonepay-gateway')
 ), 'globalonepay_settings', 1);
 
-// GlobalOne Payment XML End Pont
+// GlobalOne Payment XML End Point
 $this->Gui->add_item(array(
 	'type'        =>    'text',
 	'name'        =>    $option_prefix	. 'nexo_globalonepay_endpoint',

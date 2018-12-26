@@ -56,19 +56,6 @@ class Nexo_GlobalOnePay_Gateway extends CI_Model
 	}
 
 	/**
-	 * Dashboard Headed
-	**/
-
-//	public function dashboard_header()
-//	{
-//		global $PageNow;
-//
-//		if( $PageNow == 'nexo/registers/__use' ) {
-//			$this->load->module_view( 'nexo-globalonepay-gateway', 'dashboard-header' );
-//		}
-//	}
-
-	/**
 	 *
 	**/
 

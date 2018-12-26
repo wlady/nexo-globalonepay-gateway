@@ -34,7 +34,6 @@ tendooApp.directive( 'globalonepayPayment', function(){
 	.each( 'ng-click', 'cancelPaymentEdition()' )
 	.add( 'i.fa.fa-remove' );
 
-	// GlobalOnePay content
 	HTML.query( 'angular-cache' )
 	.add( 'br' );
 
