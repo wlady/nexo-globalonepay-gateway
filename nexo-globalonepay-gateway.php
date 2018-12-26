@@ -5,10 +5,6 @@ include_once( dirname( __FILE__ ) . '/inc/actions.php' );
 
 class Nexo_GlobalOnePay_Gateway extends CI_Model
 {
-    const TEST_MODE_SALE_URL = 'https://testpayments.globalone.me/merchant/xmlpayment';
-    // will be available after code review
-    const PROD_MODE_SALE_URL = 'https://testpayments.globalone.me/merchant/xmlpayment';
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -35,7 +31,6 @@ class Nexo_GlobalOnePay_Gateway extends CI_Model
 		endif;
 
 		$this->events->add_action( 'dashboard_footer', array( $this, 'dashboard_footer' ) );
-		$this->events->add_action( 'dashboard_header', array( $this, 'dashboard_header' ) );
 		$this->events->add_action( 'angular_paybox_footer', array( 'Nexo_GlobalOnePayGateway_Actions', 'angular_paybox_footer' ) );
 		$this->events->add_action( 'load_register_content', array( $this, 'register_content' ) );
 		$this->events->add_filter( 'nexo_payments_types', array( 'Nexo_GlobalOnePayGateway_Filters', 'payment_gateway' ) );
@@ -64,14 +59,14 @@ class Nexo_GlobalOnePay_Gateway extends CI_Model
 	 * Dashboard Headed
 	**/
 
-	public function dashboard_header()
-	{
-		global $PageNow;
-
-		if( $PageNow == 'nexo/registers/__use' ) {
-			$this->load->module_view( 'nexo-globalonepay-gateway', 'dashboard-header' );
-		}
-	}
+//	public function dashboard_header()
+//	{
+//		global $PageNow;
+//
+//		if( $PageNow == 'nexo/registers/__use' ) {
+//			$this->load->module_view( 'nexo-globalonepay-gateway', 'dashboard-header' );
+//		}
+//	}
 
 	/**
 	 *

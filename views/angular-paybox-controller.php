@@ -128,24 +128,19 @@ NexoAPI.events.addFilter( 'after_order_save', function( object ) {
 });
 
 NexoAPI.events.addFilter( 'nexo_payments_types_object', function( object ) {
-
-    object          =       _.extend( object, _.object( [ 'globalonepay' ], [{
+    object = _.extend( object, _.object( [ 'globalonepay' ], [{
         text            :       '<?php echo _s( 'GLobalOnePay', 'nexo-payments-gateway' );?>',
         active          :       false,
         isCustom        :       true
     }] ) );
-
     return object;
-
 });
 
 NexoAPI.events.addAction( 'globalonepay_charged', function( data ) {
 
 	$.ajax( '<?php echo site_url(array( 'api', 'nexopos', 'globalonepay', store_get_param( '?' ) ) );?>', {
         beforeSend : 	function(){
-
             v2Checkout.paymentWindow.showSplash();
-
             NexoAPI.Notify().success( '<?php echo _s('Veuillez patienter', 'nexo-globalonepay-gateway');?>', '<?php echo _s('Paiement en cours...', 'nexo-globalonepay-gateway');?>' );
         },
         type		:	'POST',
@@ -153,17 +148,14 @@ NexoAPI.events.addAction( 'globalonepay_charged', function( data ) {
         data		:	data,
         success		: 	function( data ) {
             if( data.status == 'payment_success' ) {
-
                 $scope.addPayment( 'globalonepay', $scope.paidAmount );
                 $scope.refreshBox();
-
                 v2Checkout.paymentWindow.hideSplash();
 				NexoAPI.Notify().success( '<?php echo _s('Paiement effectué', 'nexo-globalonepay-gateway');?>', '<?php echo _s('Le paiement a été effectué.', 'nexo-globalonepay-gateway');?>' );
             }
         },
         error		:	function( data ){
             data			=	$.parseJSON( data.responseText );
-
             if( typeof data.error != 'undefined' ) {
                 var message		=	data.error.message;
             } else if( typeof data.httpBody != 'undefined' ) {
@@ -171,11 +163,7 @@ NexoAPI.events.addAction( 'globalonepay_charged', function( data ) {
             } else {
                 var message		=	data;
             }
-
             v2Checkout.paymentWindow.hideSplash();
-            // GLobalOnePay cannot process the same order ID
-            //$scope.orderId = 0;
-
             NexoAPI.Notify().error( '<?php echo _s('Une erreur s\'est produite', 'nexo-globalonepay-gateway');?>', '<?php echo _s('Le paiement n\'a pu être effectuée. Une erreur s\'est produite durant la facturation de la carte de crédit.<br>Le serveur à retourner cette erreur : <br><strong>', 'nexo-globalonepay-gateway');?>' + message );
         }
     });

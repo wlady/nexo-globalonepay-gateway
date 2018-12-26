@@ -94,24 +94,22 @@ global $Options, $store_id, $register_id;
 
         // Filter Submitted Details
         order_details	=	NexoAPI.events.applyFilters( 'before_submit_order', order_details );
+        v2Checkout.paymentWindow.showSplash();
 
         $.ajax(  ProcessObj.url, {
             dataType		:	'json',
             type			:	ProcessObj.type,
             data			:	order_details,
-            beforeSend		: function(){
-                v2Checkout.paymentWindow.showSplash();
-            },
             success			:	function( returned ) {
                 if( _.isObject( returned ) ) {
                     order_details		=	NexoAPI.events.applyFilters( 'after_order_save', [ returned, payment_means ] )[0];
-                    console.log(['v2Checkout.saveOrder', order_details]);
+                    //console.log(['v2Checkout.saveOrder', order_details]);
                 }
-                v2Checkout.paymentWindow.hideSplash();
+                //v2Checkout.paymentWindow.hideSplash();
 
             },
             error			:	function(){
-                v2Checkout.paymentWindow.hideSplash();
+                //v2Checkout.paymentWindow.hideSplash();
                 NexoAPI.Notify().warning( '<?php echo _s('Une erreur s\'est produite', 'nexo');?>', '<?php echo _s('Le paiement n\'a pas pu être effectuée.', 'nexo');?>' );
             }
         });

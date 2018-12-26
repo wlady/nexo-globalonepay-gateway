@@ -39,15 +39,12 @@ $this->Gui->add_item(array(
 	'description'    =>    __('Désactiver GlobalOne empêchera au ressource de ce dernier de se charger dans l\'interface de la caisse.', 'nexo-globalonepay-gateway')
 ), 'globalonepay_settings', 1);
 
+// GlobalOne Payment XML End Pont
 $this->Gui->add_item(array(
-    'type'        =>    'select',
-    'name'        =>    $option_prefix	. 'nexo_globalonepay_test_mode',
-    'label'        =>    __('Test Mode', 'nexo-globalonepay-gateway'),
-    'options'    =>    array(
-        'no'    =>    __('Non', 'nexo'),
-        'yes'    =>    __('Oui', 'nexo')
-    ),
-    'description'    =>    ''
+	'type'        =>    'text',
+	'name'        =>    $option_prefix	. 'nexo_globalonepay_endpoint',
+	'label'        =>    __('Payment XML End Point', 'nexo-globalonepay-gateway'),
+	'description'    =>  __('Contact Nuvei.com integration team to get correct URL.', 'nexo-globalonepay-gateway')
 ), 'globalonepay_settings', 1);
 
 // Terminal ID
@@ -55,7 +52,7 @@ $this->Gui->add_item(array(
 	'type'        =>    'text',
 	'name'        =>    $option_prefix	. 'nexo_globalonepay_terminal_id',
 	'label'        =>    __('Terminal ID', 'nexo-globalonepay-gateway'),
-	'description'    =>  __('Obtenir des informations "terminal id" à partir de votre compte.', 'nexo-globalonepay-gateway')
+	'description'    =>  __('Retrieve the "Terminal ID" from your Nuvei.com merchant account.', 'nexo-globalonepay-gateway')
 ), 'globalonepay_settings', 1);
 
 // Shared Secret
@@ -63,8 +60,7 @@ $this->Gui->add_item(array(
 	'type'        =>    'text',
 	'name'        =>    $option_prefix	. 'nexo_globalonepay_shared_secret',
 	'label'        =>    __('Shared Secret', 'nexo-globalonepay-gateway'),
-	'description'    =>  __('Obtenir des informations "shared secret" à partir de votre compte.', 'nexo-globalonepay-gateway')
+	'description'    =>  __('Retrieve the "Shared Secret" from your Nuvei.com merchant account.', 'nexo-globalonepay-gateway')
 ), 'globalonepay_settings', 1);
-
 
 $this->Gui->output();
