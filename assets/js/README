@@ -1,6 +1,6 @@
 To build bundle just install:
 
-npm i browserify minifify card-validator
+npm i browserify minifyify card-validator
 
 and compile the bundle with:
 
