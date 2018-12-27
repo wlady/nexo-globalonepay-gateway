@@ -10,7 +10,7 @@ if (@$Options[ store_prefix() . 'nexo_enable_globalonepay' ] != 'no'):
 NexoAPI.events.addFilter( 'nexo_payments_types_object', function( object ) {
 
 	object		=	_.extend( object, _.object( [ 'globalonepay' ], [{
-		text		:	'<?php echo _s( 'GlobalOne', 'nexo-globalonepay-gateway' );?>',
+		text		:	'<?php echo _s( 'GlobalOnePay', 'nexo-globalonepay-gateway' );?>',
 		active		:	false,
 		isCustom	:	true
 	}] ) );

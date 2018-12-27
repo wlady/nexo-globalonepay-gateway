@@ -32,13 +32,13 @@ msgstr "Set an amount"
 #: inc/angular/register/directives/globalonepay-payment.php:43
 #, fuzzy
 msgid "Vous devez facturer une carte avec GlobalOnePay, avant de l'ajouter comme paiement"
-msgstr "You have to charge a card with GlobalOne, before adding as payment"
+msgstr "You have to charge a card with GlobalOnePay, before adding as payment"
 
 #: inc/filters.php:8 nexo-globalonepay-gateway.php:25 nexo-globalonepay-gateway.php:29
 #: views/dashboard-footer.php:13
 #, fuzzy
-msgid "GlobalOne"
-msgstr "GlobalOne"
+msgid "GlobalOnePay"
+msgstr "GlobalOnePay"
 
 #: inc/filters.php:21
 #, fuzzy
@@ -115,8 +115,8 @@ msgstr ""
 
 #: views/globalonepay-settings.php:19
 #, fuzzy
-msgid "Réglages GlobalOne"
-msgstr "GlobalOne Settings "
+msgid "Réglages GlobalOnePay"
+msgstr "GlobalOnePay Settings "
 
 #: views/globalonepay-settings.php:26
 #, fuzzy
@@ -125,8 +125,8 @@ msgstr "Save Settings"
 
 #: views/globalonepay-settings.php:34
 #, fuzzy
-msgid "Activer GlobalOne"
-msgstr "Enable GlobalOne"
+msgid "Activer GlobalOnePay"
+msgstr "Enable GlobalOnePay"
 
 #: views/globalonepay-settings.php:36
 #, fuzzy
@@ -141,10 +141,10 @@ msgstr "Yes"
 #: views/globalonepay-settings.php:39
 #, fuzzy
 msgid ""
-"Désactiver GlobalOne empêchera au ressource de ce dernier de se charger dans "
+"Désactiver GlobalOnePay empêchera au ressource de ce dernier de se charger dans "
 "l'interface de la caisse."
 msgstr ""
-"Disable GlobalOne will prevent this latter's resources to be loaded in the "
+"Disable GlobalOnePay will prevent this latter's resources to be loaded in the "
 "checkout screen."
 
 #: views/globalonepay-settings.php:46
@@ -157,11 +157,11 @@ msgstr "Terminal ID"
 msgid ""
 "Obtenir des informations \"terminal id\" à partir de votre compte."
 msgstr ""
-"Retrieve the \"Terminal ID\" from your GlobalOne account."
+"Retrieve the \"Terminal ID\" from your GlobalOnePay account."
 
 #: views/globalonepay-settings.php:47
 #, fuzzy, php-format
 msgid ""
 "Obtenir des informations \"shared secret\" à partir de votre compte."
 msgstr ""
-"Retrieve the \"Shared Secret\" from your GlobalOne account."
+"Retrieve the \"Shared Secret\" from your GlobalOnePay account."

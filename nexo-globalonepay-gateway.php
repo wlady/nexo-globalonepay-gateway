@@ -22,11 +22,11 @@ class Nexo_GlobalOnePay_Gateway extends CI_Model
 		if (@$Options[ store_prefix() . 'nexo_enable_globalonepay' ] != 'no'):
 			$this->load->module_config( 'nexo', 'nexo' );
 			$payments	=	$this->config->item( 'nexo_payments_types' );
-			$payments[ 'globalonepay' ]	=	__( 'GlobalOne' , 'nexo-globalonepay-gateway' );
+			$payments[ 'globalonepay' ]	=	__( 'GlobalOnePay' , 'nexo-globalonepay-gateway' );
 			$this->config->set_item( 'nexo_payments_types', $payments );
 
 			$payments_all	=	$this->config->item( 'nexo_all_payment_types' );
-			$payments_all[ 'globalonepay' ]	=	__( 'GlobalOne' , 'nexo-globalonepay-gateway' );
+			$payments_all[ 'globalonepay' ]	=	__( 'GlobalOnePay' , 'nexo-globalonepay-gateway' );
 			$this->config->set_item( 'nexo_all_payment_types', $payments_all );
 		endif;
 

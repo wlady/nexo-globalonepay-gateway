@@ -16,7 +16,7 @@ $this->Gui->col_width(1, 2);
 
 $this->Gui->add_meta(array( 
 	'namespace'    =>    'globalonepay_settings',
-	'title'        =>    __('Réglages GlobalOne', 'nexo-globalonepay-gateway'),
+	'title'        =>    __('Réglages GlobalOnePay', 'nexo-globalonepay-gateway'),
 	'col_id'    =>    1,
 	'type'        =>    'box',
 	'gui_saver'    =>    true,
@@ -31,12 +31,12 @@ $this->Gui->add_meta(array(
 $this->Gui->add_item(array(
 	'type'        =>    'select',
 	'name'        =>    $option_prefix	. 'nexo_enable_globalonepay',
-	'label'        =>    __('Activer GlobalOne', 'nexo-globalonepay-gateway'),
+	'label'        =>    __('Activer GlobalOnePay', 'nexo-globalonepay-gateway'),
 	'options'    =>    array(
 		'no'    =>    __('Non', 'nexo'),
 		'yes'    =>    __('Oui', 'nexo')
 	),
-	'description'    =>    __('Désactiver GlobalOne empêchera au ressource de ce dernier de se charger dans l\'interface de la caisse.', 'nexo-globalonepay-gateway')
+	'description'    =>    __('Désactiver GlobalOnePay empêchera au ressource de ce dernier de se charger dans l\'interface de la caisse.', 'nexo-globalonepay-gateway')
 ), 'globalonepay_settings', 1);
 
 // GlobalOne Payment XML End Point
