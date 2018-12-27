@@ -3,7 +3,7 @@
 	<namespace>nexo-globalonepay-gateway</namespace>
 	<name>GlobalOne Payment Gateway</name>
 	<author>Vladimir Zabara</author>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<description>Add GlobalOne Payment gateway on NexoPOS. See &lt;a href="https://nuvei.com" target="_blank"&gt;Nuvei.com&lt;/a&gt; for more details.</description>
 	<main>nexo-globalonepay-gateway.php</main>
 	<language>language/</language>

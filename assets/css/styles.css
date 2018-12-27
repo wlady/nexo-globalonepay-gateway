@@ -21,6 +21,18 @@
 .btn-globalonepay {
     font-weight: bold;
     font-size: 2rem;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    width: 20rem;
+}
+.btn-globalonepay:hover {
+    color: #fafafa;
+}
+.btn-globalonepay-cancel {
+    font-size: 2rem;
+}
+.btn-globalonepay-ok {
     background: -moz-linear-gradient(top, #79b0e0 0%, #3a7ec2 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, #79b0e0), color-stop(100%, #3a7ec2));
     background: -webkit-linear-gradient(top, #79b0e0 0%, #3a7ec2 100%);
@@ -28,11 +40,23 @@
     background: -ms-linear-gradient(top, #79b0e0 0%, #3a7ec2 100%);
     background: linear-gradient(to bottom, #79b0e0 0%, #3a7ec2 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#79b0e0', endColorstr='#3a7ec2', GradientType=0 );
-    border: none;
-    border-radius: 4px;
 }
-.btn-globalonepay:active {
+.btn-globalonepay-cancel {
+    background: -moz-linear-gradient(top, #ff0000 0%, #910000 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #ff0000), color-stop(100%, #910000));
+    background: -webkit-linear-gradient(top, #ff0000 0%, #910000 100%);
+    background: -o-linear-gradient(top, #ff0000 0%, #910000 100%);
+    background: -ms-linear-gradient(top, #ff0000 0%, #910000 100%);
+    background: linear-gradient(to bottom, #ff0000 0%, #910000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#910000', GradientType=0 );
+}
+.btn-globalonepay-ok:active {
     background: #4d6590 !important;
+    border: none !important;
+    border-radius: 4px !important;
+}
+.btn-globalonepay-cancel:active {
+    background: #900025 !important;
     border: none !important;
     border-radius: 4px !important;
 }

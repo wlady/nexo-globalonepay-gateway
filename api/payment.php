@@ -40,8 +40,8 @@ class GlobalOnePayment extends Tendoo_Api
         $cardHolder = $this->post('holder');
         $currency = $this->post('currency');
         $cardCvv = $this->post('cvv');
-        $terminalType = 2; // Cardholder Present
-        $transactionType = 7; // Cardholder Present (CHP) transaction
+        $terminalType = 2; // eCommerce
+        $transactionType = 7; // eCommerce
 
         $xmlRequest = "<?xml version='1.0' encoding='UTF-8'?>
 <PAYMENT>
@@ -77,9 +77,22 @@ class GlobalOnePayment extends Tendoo_Api
             ),
         ));
 
-        //$this->flog(APPPATH . 'log.txt', $xmlRequest);
+        if (@$Options[store_prefix() . 'nexo_globalonepay_logs'] != 'no') {
+            $this->log([
+                'order' => $orderId,
+                'terminal' => $terminalId,
+                'amount' => $amount,
+                'currency' => $currency,
+                'cardNumber' => substr_replace($cardNumber, str_repeat("*", 8), 4, 8),
+                'cardType' => $cardType,
+                'cardExpire' => $cardExpire,
+                'cardHolder' => $cardHolder,
+            ]);
+        }
         $response = curl_exec($curl);
-        //$this->flog(APPPATH . 'log.txt', $response);
+        if (@$Options[store_prefix() . 'nexo_globalonepay_logs'] != 'no') {
+            $this->log($response);
+        }
         $err = curl_error($curl);
 
         curl_close($curl);
@@ -89,15 +102,27 @@ class GlobalOnePayment extends Tendoo_Api
         } else {
             $array_data = json_decode(json_encode(simplexml_load_string($response)), true);
             if (isset($array_data['ERRORSTRING'])) {
-                $this->response($array_data['ERRORSTRING'], 500);
+                $this->response([
+                    'error' => [
+                        'message' => $array_data['ERRORSTRING']
+                    ]
+                ], 500);
             } else if (isset($array_data['RESPONSECODE']) && $array_data['RESPONSECODE'] == 'A') {
-                $this->response(array(
+                $this->response([
                     'status' => 'payment_success'
-                ), 200);
+                ], 200);
             } else if (isset($array_data['RESPONSETEXT'])) {
-                $this->response($array_data['RESPONSETEXT'], 500);
+                $this->response([
+                    'error' => [
+                        'message' => $array_data['RESPONSETEXT']
+                    ]
+                ], 500);
             } else {
-                $this->response('Unknown GlobalOne Payment Error', 500);
+                $this->response([
+                    'error' => [
+                        'message' => 'Unknown GlobalOne Payment Error'
+                    ]
+                ], 500);
             }
         }
     }
@@ -111,8 +136,8 @@ class GlobalOnePayment extends Tendoo_Api
         return $v . PHP_EOL;
     }
 
-    private function flog($fname, $var)
+    private function log($var)
     {
-        file_put_contents($fname, '+---+ ' . date('H:i:s d-m-Y') . ' +-----+' . PHP_EOL . $this->_var_dump($var) . PHP_EOL, FILE_APPEND);
+        file_put_contents(APPPATH . 'logs/globalonepay-payments-' . date('Y-m-d') . '.log', '+---+ ' . date('Y-m-d H:i:s') . ' +-----+' . PHP_EOL . $this->_var_dump($var) . PHP_EOL, FILE_APPEND);
     }
 }

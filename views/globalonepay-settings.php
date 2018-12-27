@@ -63,4 +63,16 @@ $this->Gui->add_item(array(
 	'description'    =>  __('Retrieve the "Shared Secret" from your Nuvei.com merchant account.', 'nexo-globalonepay-gateway')
 ), 'globalonepay_settings', 1);
 
+$this->Gui->add_item(array(
+    'type'        =>    'select',
+    'name'        =>    $option_prefix	. 'nexo_globalonepay_logs',
+    'label'        =>    __('Enable Logs', 'nexo-globalonepay-gateway'),
+    'options'    =>    array(
+        'no'    =>    __('Non', 'nexo'),
+        'yes'    =>    __('Oui', 'nexo')
+    ),
+    'description'    =>    __('Daily log files are \'application/logs/globalonepay-payments-XXXXXX.log\'.', 'nexo-globalonepay-gateway')
+), 'globalonepay_settings', 1);
+
+
 $this->Gui->output();
