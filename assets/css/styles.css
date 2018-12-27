@@ -1,3 +1,38 @@
 .form .input-group .input-group-addon {
     width: 25% !important;
 }
+.modal.modal-globalonepay {
+    background: rgba(0,0,0,0.5);
+}
+.modal-globalonepay .modal-content {
+    border-radius: 10px;
+    margin: 25% 0;
+}
+.modal-globalonepay .bootbox-close-button {
+    background-image: url('/public/modules/nexo-globalonepay-gateway/images/close-btn.png');
+    width: 17px;
+    height: 17px;
+    opacity: 1;
+    font-size: 1px;
+}
+.modal-globalonepay .modal-footer {
+    text-align: center;
+}
+.btn-globalonepay {
+    font-weight: bold;
+    font-size: 2rem;
+    background: -moz-linear-gradient(top, #79b0e0 0%, #3a7ec2 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #79b0e0), color-stop(100%, #3a7ec2));
+    background: -webkit-linear-gradient(top, #79b0e0 0%, #3a7ec2 100%);
+    background: -o-linear-gradient(top, #79b0e0 0%, #3a7ec2 100%);
+    background: -ms-linear-gradient(top, #79b0e0 0%, #3a7ec2 100%);
+    background: linear-gradient(to bottom, #79b0e0 0%, #3a7ec2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#79b0e0', endColorstr='#3a7ec2', GradientType=0 );
+    border: none;
+    border-radius: 4px;
+}
+.btn-globalonepay:active {
+    background: #4d6590 !important;
+    border: none !important;
+    border-radius: 4px !important;
+}
